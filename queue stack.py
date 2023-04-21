@@ -3,6 +3,9 @@ class Queue:
     def __init__(self):  # constructor function
         self.items = []
 
+    def __str__(self):
+        return ', '.join(map(str, self.items))
+
     def isEmpty(self):  # returns True if the queue is empty or False otherwise
         return len(self.items) == 0
 
@@ -25,15 +28,16 @@ class Queue:
             return None
         return self.items.pop(index)
 
-def stackToQueue(stack):
 
+def stackToQueue(stack):
     queue = Queue()
 
     for item in reversed(stack):
         queue.add(item)
     return queue
 
+
 if __name__ == "__main__":
-    stack = [1,2,3]
+    stack = [1, 2, 3]
     res = stackToQueue(stack)
     print(res) # expected (LinkedQueue): 3, 2, 1
